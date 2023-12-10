@@ -8,10 +8,10 @@ This script reads a file in `.csv` format and allows you to choose the criteria 
 Run the script using the following command:
 
 ```bash
-go run main.go ./source-file.csv ./destination-file.csv
+go run main.go ./arquivo-origem.csv ./arquivo-destino.csv
 ```
 
-Replace `./source-file.csv` with the name and path of the file to be read, and `./destination-file.csv` with the name and path for the newly generated sorted file based on the chosen criteria.
+Replace `./arquivo-origem.csv` with the name and path of the file to be read, and `./arquivo-destino.csv` with the name and path for the newly generated sorted file based on the chosen criteria.
 
 ## Requirements
 
