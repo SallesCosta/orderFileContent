@@ -8,12 +8,6 @@ import (
 	"strings"
 )
 
-var InputMap = map[string]int{
-	"Name":   0,
-	"Age":    1,
-	"Points": 2,
-}
-
 func ScanFile(file io.Reader) [][]string {
 	var data [][]string
 	scanner := bufio.NewScanner(file)
@@ -33,7 +27,7 @@ func ScanFile(file io.Reader) [][]string {
 }
 
 func CreateFileOrdernated(data [][]string, newFile io.Writer, filter, newFileName string) {
-	filterCritery := InputMap[filter]
+	filterCritery := findIndex(filter, data[0])
 
 	sort.SliceStable(data[1:], func(i, j int) bool {
 		return data[i+1][filterCritery] < data[j+1][filterCritery]
@@ -43,4 +37,13 @@ func CreateFileOrdernated(data [][]string, newFile io.Writer, filter, newFileNam
 		fmt.Fprintln(newFile, row)
 	}
 
+}
+
+func findIndex(option string, slice []string) int {
+	for i, item := range slice {
+		if strings.EqualFold(option, item) {
+			return i
+		}
+	}
+	return -1
 }
